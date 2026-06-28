@@ -4,6 +4,7 @@
 Uma pequena aplicação de emails utilizando graphql com lógica para:
 1. Usuários
 2. Emails
+3. Autenticação
 
 Uma adição a dificuldade, é que um usuário que envia o email pode deletar o email caso o destinatário ainda não o tenha visto.
 
