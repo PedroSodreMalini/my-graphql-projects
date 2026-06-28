@@ -21,6 +21,9 @@ export class EmailModel {
     @Field(() => String)
     senderId!: string
 
+    @Field(() => Boolean)
+    wasSeen!: boolean
+
     @Field(() => UserPublicModel, { nullable: true })
     sender?: UserPublicModel
 

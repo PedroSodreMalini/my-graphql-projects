@@ -3,10 +3,30 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
+"""create email input"""
+input CreateEmailRequest {
+  content: String!
+  receiverEmail: String!
+  title: String!
+}
+
 """
 A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.This scalar is serialized to a string in ISO 8601 format and parsed from a string in ISO 8601 format.
 """
 scalar DateTimeISO
+
+"""Modelo de email"""
+type EmailModel {
+  content: String!
+  createdAt: DateTimeISO!
+  id: String!
+  receiver: UserPublicModel
+  receiverId: String!
+  sender: UserPublicModel
+  senderId: String!
+  title: String!
+  wasSeen: Boolean!
+}
 
 """login request body"""
 input LoginRequest {
@@ -22,15 +42,20 @@ type LoginResponse {
 
 type Mutation {
   createUser(data: RegisterRequest!): UserPublicModel!
+  deleteEmail(id: String!): EmailModel!
   deleteMe: UserPublicModel!
   login(data: LoginRequest!): LoginResponse!
+  sendEmail(data: CreateEmailRequest!): EmailModel!
   updateMe(data: UpdateUserRequest!): UserPublicModel!
 }
 
 type Query {
+  findEmail(id: String!): EmailModel!
   findUser(id: String!): UserPublicModel!
   listUsers: [UserPublicModel!]!
   me: UserPublicModel!
+  myReceivedEmails: [EmailModel!]!
+  mySentEmails: [EmailModel!]!
 }
 
 """DTO for user creation"""

@@ -86,6 +86,7 @@ export const EmailScalarFieldEnum = {
   content: 'content',
   receiverId: 'receiverId',
   senderId: 'senderId',
+  wasSeen: 'wasSeen',
   createdAt: 'createdAt'
 } as const
 

@@ -251,7 +251,7 @@ export type UserCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   sentEmails?: Prisma.EmailCreateNestedManyWithoutSenderInput
-  receivedEmails?: Prisma.EmailCreateNestedManyWithoutDestinatorInput
+  receivedEmails?: Prisma.EmailCreateNestedManyWithoutReceiverInput
 }
 
 export type UserUncheckedCreateInput = {
@@ -262,7 +262,7 @@ export type UserUncheckedCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   sentEmails?: Prisma.EmailUncheckedCreateNestedManyWithoutSenderInput
-  receivedEmails?: Prisma.EmailUncheckedCreateNestedManyWithoutDestinatorInput
+  receivedEmails?: Prisma.EmailUncheckedCreateNestedManyWithoutReceiverInput
 }
 
 export type UserUpdateInput = {
@@ -273,7 +273,7 @@ export type UserUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sentEmails?: Prisma.EmailUpdateManyWithoutSenderNestedInput
-  receivedEmails?: Prisma.EmailUpdateManyWithoutDestinatorNestedInput
+  receivedEmails?: Prisma.EmailUpdateManyWithoutReceiverNestedInput
 }
 
 export type UserUncheckedUpdateInput = {
@@ -284,7 +284,7 @@ export type UserUncheckedUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sentEmails?: Prisma.EmailUncheckedUpdateManyWithoutSenderNestedInput
-  receivedEmails?: Prisma.EmailUncheckedUpdateManyWithoutDestinatorNestedInput
+  receivedEmails?: Prisma.EmailUncheckedUpdateManyWithoutReceiverNestedInput
 }
 
 export type UserCreateManyInput = {
@@ -389,7 +389,7 @@ export type UserCreateWithoutSentEmailsInput = {
   password: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  receivedEmails?: Prisma.EmailCreateNestedManyWithoutDestinatorInput
+  receivedEmails?: Prisma.EmailCreateNestedManyWithoutReceiverInput
 }
 
 export type UserUncheckedCreateWithoutSentEmailsInput = {
@@ -399,7 +399,7 @@ export type UserUncheckedCreateWithoutSentEmailsInput = {
   password: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  receivedEmails?: Prisma.EmailUncheckedCreateNestedManyWithoutDestinatorInput
+  receivedEmails?: Prisma.EmailUncheckedCreateNestedManyWithoutReceiverInput
 }
 
 export type UserCreateOrConnectWithoutSentEmailsInput = {
@@ -450,7 +450,7 @@ export type UserUpdateWithoutSentEmailsInput = {
   password?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  receivedEmails?: Prisma.EmailUpdateManyWithoutDestinatorNestedInput
+  receivedEmails?: Prisma.EmailUpdateManyWithoutReceiverNestedInput
 }
 
 export type UserUncheckedUpdateWithoutSentEmailsInput = {
@@ -460,7 +460,7 @@ export type UserUncheckedUpdateWithoutSentEmailsInput = {
   password?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  receivedEmails?: Prisma.EmailUncheckedUpdateManyWithoutDestinatorNestedInput
+  receivedEmails?: Prisma.EmailUncheckedUpdateManyWithoutReceiverNestedInput
 }
 
 export type UserUpsertWithoutReceivedEmailsInput = {
