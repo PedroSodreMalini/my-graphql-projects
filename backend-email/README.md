@@ -25,7 +25,13 @@ Uma adição a dificuldade, é que um usuário que envia o email pode deletar o 
 npm i
 npm run dev
 ```
-Ao rodar o projeto no terminal, rodar em máquina local e clicar neste [Link](http://localhost:4000) para acessar o **Apollo Server**.
+Ao rodar o projeto no terminal, rodar em máquina local e clicar neste [Link](http://localhost:4000/graphql) para acessar o **Apollo Server**.
+
+## Mutations
+![Mutations](./public/mutations.png)
+
+## Queries
+![Queries](./public/queries.png)
 
 ## Créditos
 Pedro Malini, 28/06/2026
