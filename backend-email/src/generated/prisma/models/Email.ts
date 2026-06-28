@@ -30,6 +30,7 @@ export type EmailMinAggregateOutputType = {
   content: string | null
   receiverId: string | null
   senderId: string | null
+  createdAt: Date | null
 }
 
 export type EmailMaxAggregateOutputType = {
@@ -38,6 +39,7 @@ export type EmailMaxAggregateOutputType = {
   content: string | null
   receiverId: string | null
   senderId: string | null
+  createdAt: Date | null
 }
 
 export type EmailCountAggregateOutputType = {
@@ -46,6 +48,7 @@ export type EmailCountAggregateOutputType = {
   content: number
   receiverId: number
   senderId: number
+  createdAt: number
   _all: number
 }
 
@@ -56,6 +59,7 @@ export type EmailMinAggregateInputType = {
   content?: true
   receiverId?: true
   senderId?: true
+  createdAt?: true
 }
 
 export type EmailMaxAggregateInputType = {
@@ -64,6 +68,7 @@ export type EmailMaxAggregateInputType = {
   content?: true
   receiverId?: true
   senderId?: true
+  createdAt?: true
 }
 
 export type EmailCountAggregateInputType = {
@@ -72,6 +77,7 @@ export type EmailCountAggregateInputType = {
   content?: true
   receiverId?: true
   senderId?: true
+  createdAt?: true
   _all?: true
 }
 
@@ -153,6 +159,7 @@ export type EmailGroupByOutputType = {
   content: string
   receiverId: string
   senderId: string
+  createdAt: Date
   _count: EmailCountAggregateOutputType | null
   _min: EmailMinAggregateOutputType | null
   _max: EmailMaxAggregateOutputType | null
@@ -182,6 +189,7 @@ export type EmailWhereInput = {
   content?: Prisma.StringFilter<"Email"> | string
   receiverId?: Prisma.StringFilter<"Email"> | string
   senderId?: Prisma.StringFilter<"Email"> | string
+  createdAt?: Prisma.DateTimeFilter<"Email"> | Date | string
   sender?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   destinator?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }
@@ -192,6 +200,7 @@ export type EmailOrderByWithRelationInput = {
   content?: Prisma.SortOrder
   receiverId?: Prisma.SortOrder
   senderId?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
   sender?: Prisma.UserOrderByWithRelationInput
   destinator?: Prisma.UserOrderByWithRelationInput
 }
@@ -205,6 +214,7 @@ export type EmailWhereUniqueInput = Prisma.AtLeast<{
   content?: Prisma.StringFilter<"Email"> | string
   receiverId?: Prisma.StringFilter<"Email"> | string
   senderId?: Prisma.StringFilter<"Email"> | string
+  createdAt?: Prisma.DateTimeFilter<"Email"> | Date | string
   sender?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   destinator?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }, "id">
@@ -215,6 +225,7 @@ export type EmailOrderByWithAggregationInput = {
   content?: Prisma.SortOrder
   receiverId?: Prisma.SortOrder
   senderId?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
   _count?: Prisma.EmailCountOrderByAggregateInput
   _max?: Prisma.EmailMaxOrderByAggregateInput
   _min?: Prisma.EmailMinOrderByAggregateInput
@@ -229,12 +240,14 @@ export type EmailScalarWhereWithAggregatesInput = {
   content?: Prisma.StringWithAggregatesFilter<"Email"> | string
   receiverId?: Prisma.StringWithAggregatesFilter<"Email"> | string
   senderId?: Prisma.StringWithAggregatesFilter<"Email"> | string
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"Email"> | Date | string
 }
 
 export type EmailCreateInput = {
   id?: string
   title: string
   content: string
+  createdAt?: Date | string
   sender: Prisma.UserCreateNestedOneWithoutSentEmailsInput
   destinator: Prisma.UserCreateNestedOneWithoutReceivedEmailsInput
 }
@@ -245,12 +258,14 @@ export type EmailUncheckedCreateInput = {
   content: string
   receiverId: string
   senderId: string
+  createdAt?: Date | string
 }
 
 export type EmailUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sender?: Prisma.UserUpdateOneRequiredWithoutSentEmailsNestedInput
   destinator?: Prisma.UserUpdateOneRequiredWithoutReceivedEmailsNestedInput
 }
@@ -261,6 +276,7 @@ export type EmailUncheckedUpdateInput = {
   content?: Prisma.StringFieldUpdateOperationsInput | string
   receiverId?: Prisma.StringFieldUpdateOperationsInput | string
   senderId?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type EmailCreateManyInput = {
@@ -269,12 +285,14 @@ export type EmailCreateManyInput = {
   content: string
   receiverId: string
   senderId: string
+  createdAt?: Date | string
 }
 
 export type EmailUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type EmailUncheckedUpdateManyInput = {
@@ -283,6 +301,7 @@ export type EmailUncheckedUpdateManyInput = {
   content?: Prisma.StringFieldUpdateOperationsInput | string
   receiverId?: Prisma.StringFieldUpdateOperationsInput | string
   senderId?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type EmailListRelationFilter = {
@@ -301,6 +320,7 @@ export type EmailCountOrderByAggregateInput = {
   content?: Prisma.SortOrder
   receiverId?: Prisma.SortOrder
   senderId?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
 }
 
 export type EmailMaxOrderByAggregateInput = {
@@ -309,6 +329,7 @@ export type EmailMaxOrderByAggregateInput = {
   content?: Prisma.SortOrder
   receiverId?: Prisma.SortOrder
   senderId?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
 }
 
 export type EmailMinOrderByAggregateInput = {
@@ -317,6 +338,7 @@ export type EmailMinOrderByAggregateInput = {
   content?: Prisma.SortOrder
   receiverId?: Prisma.SortOrder
   senderId?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
 }
 
 export type EmailCreateNestedManyWithoutSenderInput = {
@@ -407,6 +429,7 @@ export type EmailCreateWithoutSenderInput = {
   id?: string
   title: string
   content: string
+  createdAt?: Date | string
   destinator: Prisma.UserCreateNestedOneWithoutReceivedEmailsInput
 }
 
@@ -415,6 +438,7 @@ export type EmailUncheckedCreateWithoutSenderInput = {
   title: string
   content: string
   receiverId: string
+  createdAt?: Date | string
 }
 
 export type EmailCreateOrConnectWithoutSenderInput = {
@@ -430,6 +454,7 @@ export type EmailCreateWithoutDestinatorInput = {
   id?: string
   title: string
   content: string
+  createdAt?: Date | string
   sender: Prisma.UserCreateNestedOneWithoutSentEmailsInput
 }
 
@@ -438,6 +463,7 @@ export type EmailUncheckedCreateWithoutDestinatorInput = {
   title: string
   content: string
   senderId: string
+  createdAt?: Date | string
 }
 
 export type EmailCreateOrConnectWithoutDestinatorInput = {
@@ -474,6 +500,7 @@ export type EmailScalarWhereInput = {
   content?: Prisma.StringFilter<"Email"> | string
   receiverId?: Prisma.StringFilter<"Email"> | string
   senderId?: Prisma.StringFilter<"Email"> | string
+  createdAt?: Prisma.DateTimeFilter<"Email"> | Date | string
 }
 
 export type EmailUpsertWithWhereUniqueWithoutDestinatorInput = {
@@ -497,6 +524,7 @@ export type EmailCreateManySenderInput = {
   title: string
   content: string
   receiverId: string
+  createdAt?: Date | string
 }
 
 export type EmailCreateManyDestinatorInput = {
@@ -504,12 +532,14 @@ export type EmailCreateManyDestinatorInput = {
   title: string
   content: string
   senderId: string
+  createdAt?: Date | string
 }
 
 export type EmailUpdateWithoutSenderInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   destinator?: Prisma.UserUpdateOneRequiredWithoutReceivedEmailsNestedInput
 }
 
@@ -518,6 +548,7 @@ export type EmailUncheckedUpdateWithoutSenderInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.StringFieldUpdateOperationsInput | string
   receiverId?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type EmailUncheckedUpdateManyWithoutSenderInput = {
@@ -525,12 +556,14 @@ export type EmailUncheckedUpdateManyWithoutSenderInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.StringFieldUpdateOperationsInput | string
   receiverId?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type EmailUpdateWithoutDestinatorInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sender?: Prisma.UserUpdateOneRequiredWithoutSentEmailsNestedInput
 }
 
@@ -539,6 +572,7 @@ export type EmailUncheckedUpdateWithoutDestinatorInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.StringFieldUpdateOperationsInput | string
   senderId?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type EmailUncheckedUpdateManyWithoutDestinatorInput = {
@@ -546,6 +580,7 @@ export type EmailUncheckedUpdateManyWithoutDestinatorInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.StringFieldUpdateOperationsInput | string
   senderId?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -556,6 +591,7 @@ export type EmailSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   content?: boolean
   receiverId?: boolean
   senderId?: boolean
+  createdAt?: boolean
   sender?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   destinator?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["email"]>
@@ -566,6 +602,7 @@ export type EmailSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   content?: boolean
   receiverId?: boolean
   senderId?: boolean
+  createdAt?: boolean
   sender?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   destinator?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["email"]>
@@ -576,6 +613,7 @@ export type EmailSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   content?: boolean
   receiverId?: boolean
   senderId?: boolean
+  createdAt?: boolean
   sender?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   destinator?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["email"]>
@@ -586,9 +624,10 @@ export type EmailSelectScalar = {
   content?: boolean
   receiverId?: boolean
   senderId?: boolean
+  createdAt?: boolean
 }
 
-export type EmailOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "title" | "content" | "receiverId" | "senderId", ExtArgs["result"]["email"]>
+export type EmailOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "title" | "content" | "receiverId" | "senderId" | "createdAt", ExtArgs["result"]["email"]>
 export type EmailInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   sender?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   destinator?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -614,6 +653,7 @@ export type $EmailPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     content: string
     receiverId: string
     senderId: string
+    createdAt: Date
   }, ExtArgs["result"]["email"]>
   composites: {}
 }
@@ -1044,6 +1084,7 @@ export interface EmailFieldRefs {
   readonly content: Prisma.FieldRef<"Email", 'String'>
   readonly receiverId: Prisma.FieldRef<"Email", 'String'>
   readonly senderId: Prisma.FieldRef<"Email", 'String'>
+  readonly createdAt: Prisma.FieldRef<"Email", 'DateTime'>
 }
     
 

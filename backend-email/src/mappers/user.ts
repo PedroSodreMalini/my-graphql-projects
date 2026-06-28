@@ -1,5 +1,5 @@
-import type { UserPublicModel } from "../dtos/user.dto.js";
-import type { UserModel } from "../generated/prisma/models.js";
+import type { UserPublicModel } from "@/dtos/user.dto.js";
+import type { UserModel } from "@/generated/prisma/models.js";
 
 export const userMapper = (user: UserModel): UserPublicModel => {
     return {

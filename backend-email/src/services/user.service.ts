@@ -1,14 +1,15 @@
 import { GraphQLError } from "graphql";
-import { prismaClient } from "../../prisma/prisma.js";
-import type { CreateUserRequest, UpdateUserRequest, UserPublicModel } from "../dtos/user.dto.js";
-import { userMapper } from "../mappers/user.js";
-import { hashPassword } from "../utils/hash.js";
+import { prismaClient } from "@/../prisma/prisma.js";
+import type { UpdateUserRequest, UserPublicModel } from "@/dtos/user.dto.js";
+import { userMapper } from "@/mappers/user.js";
+import { hashPassword } from "@/utils/hash.js";
+import type { RegisterRequest } from "@/dtos/auth.dto.js";
 
 export class UserService {
-    async createUser(data: CreateUserRequest): Promise<UserPublicModel> {
+    async createUser(data: RegisterRequest): Promise<UserPublicModel> {
         const userExists = await prismaClient.user.findUnique({
             where: {
-                email: data.email.trim()
+                email: data.email.trim().toLowerCase()
             }
         })
 
@@ -21,7 +22,7 @@ export class UserService {
 
         const newUser = await prismaClient.user.create({
             data: {
-                email: data.email.trim(),
+                email: data.email.trim().toLowerCase(),
                 name: data.name.trim(),
                 password: await hashPassword(data.password),
             }
@@ -109,9 +110,10 @@ export class UserService {
             })
         }
 
-        // se não retornar nada, só retorna o usuário.
-        if ((existsUser.email === data.email || data.email === null) 
-            && (existsUser.name === data.name || data.name === null)) {
+        // se não alterar nada, só retorna o usuário como já está.
+        if ((existsUser.email === data.email?.trim().toLowerCase()
+                || !data.email) 
+            && (existsUser.name === data.name?.trim() || !data.name)) {
             return userMapper(existsUser)
         } else { // senão, faz atualização 
             const userUpdated = await prismaClient.user.update({

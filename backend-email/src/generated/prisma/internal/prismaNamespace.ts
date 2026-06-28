@@ -606,7 +606,8 @@ export const EmailScalarFieldEnum = {
   title: 'title',
   content: 'content',
   receiverId: 'receiverId',
-  senderId: 'senderId'
+  senderId: 'senderId',
+  createdAt: 'createdAt'
 } as const
 
 export type EmailScalarFieldEnum = (typeof EmailScalarFieldEnum)[keyof typeof EmailScalarFieldEnum]

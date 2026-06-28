@@ -8,6 +8,7 @@ import { ApolloServer } from '@apollo/server'
 import { expressMiddleware } from '@as-integrations/express5'
 import { buildContext } from './graphql/context/index.js'
 import { AuthResolver } from './resolvers/auth.resolver.js'
+import { EmailResolver } from '@/resolvers/email.resolver.js'
 
 async function bootstrap () {
     const app = express()
@@ -18,7 +19,7 @@ async function bootstrap () {
     }))
 
     const schema = await buildSchema({
-        resolvers: [AuthResolver, UserResolver],
+        resolvers: [AuthResolver, EmailResolver, UserResolver],
         validate: true,
         emitSchemaFile: './schema.graphql'
     })

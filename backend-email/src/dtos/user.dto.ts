@@ -1,4 +1,4 @@
-import { IsEmail, IsNotEmpty, Length, MinLength } from "class-validator";
+import { IsEmail, MinLength } from "class-validator";
 import { Field, GraphQLISODateTime, InputType, ObjectType } from "type-graphql";
 
 @ObjectType({ description: "Exposed user class" })
@@ -17,23 +17,6 @@ export class UserPublicModel {
 
     @Field(() => GraphQLISODateTime)
     updatedAt!: string
-}
-
-@InputType({ description: "DTO for user creation" })
-export class CreateUserRequest {
-    @Field(() => String)
-    @IsNotEmpty({ message: "cannot be empty" })
-    @MinLength(2, { message: 'must have at least 2 characters' })
-    name!: string
-
-    @Field(() => String)
-    @IsNotEmpty({ message: "cannot be empty" })
-    @IsEmail({}, { message: 'must be a valid email' })
-    email!: string
-
-    @Field(() => String)
-    @Length(6, 20, { message: 'must have between 6-20 characters' })
-    password!: string
 }
 
 @InputType({ description: "DTO for user self update" })

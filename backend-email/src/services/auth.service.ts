@@ -1,6 +1,6 @@
 import { GraphQLError } from "graphql";
-import { prismaClient } from "../../prisma/prisma.js";
-import type { LoginRequest, LoginResponse } from "../dtos/auth.dto.js";
+import { prismaClient } from "@/../prisma/prisma.js";
+import type { LoginRequest, LoginResponse } from "@/dtos/auth.dto.js";
 import { comparePassword } from "@/utils/hash.js";
 import { signJwt } from "@/utils/jwt.js";
 import { userMapper } from "@/mappers/user.js";

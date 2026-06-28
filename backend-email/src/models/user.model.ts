@@ -1,7 +1,8 @@
 import { Field, GraphQLISODateTime, ObjectType } from "type-graphql";
 
+// Esse modelo não é exposto, pois contém a senha do usuário.
 @ObjectType({
-    description: 'Modelo de usuário'
+    description: 'Modelo de usuário - Não é exposto devido a senha'
 })
 export class UserModel {
     @Field(() => String, { name: 'Id', description: "ID do usuário"})

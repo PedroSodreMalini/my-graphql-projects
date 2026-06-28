@@ -24,11 +24,12 @@ model User {
 }
 
 model Email {
-  id         String @id @default(uuid())
+  id         String   @id @default(uuid())
   title      String
   content    String
   receiverId String
   senderId   String
-  sender     User   @relation("SentEmails", fields: [senderId], references: [id])
-  destinator User   @relation("ReceivedEmails", fields: [receiverId], references: [id])
+  createdAt  DateTime @default(now())
+  sender     User     @relation("SentEmails", fields: [senderId], references: [id])
+  destinator User     @relation("ReceivedEmails", fields: [receiverId], references: [id])
 }
